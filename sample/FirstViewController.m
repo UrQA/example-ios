@@ -7,6 +7,7 @@
 //
 
 #import "FirstViewController.h"
+#import <UrQA-Client-iOS/URQAController.h>
 
 @interface FirstViewController ()
 
@@ -14,8 +15,19 @@
 
 @implementation FirstViewController
 
+- (IBAction)errorBtnDwonEvent:(id)sender {
+    @try {
+        NSMutableArray *array = (NSMutableArray*) [[NSArray alloc] init];
+        [array addObject:@"Test"];
+    }
+    @catch (NSException *exception) {
+        URQALog(exception, @"Array Error");
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    URQABreadcrumb(@"First View Open");
     // Do any additional setup after loading the view, typically from a nib.
 }
 

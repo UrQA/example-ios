@@ -7,6 +7,7 @@
 //
 
 #import "SecondViewController.h"
+#import <UrQA-Client-iOS/URQAController.h>
 
 @interface SecondViewController ()
 
@@ -16,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    URQABreadcrumb(@"Second View Open");
     // Do any additional setup after loading the view, typically from a nib.
 }
 

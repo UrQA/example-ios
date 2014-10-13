@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <UrQA-Client-iOS/URQAController.h>
 
 @interface AppDelegate ()
 
@@ -17,6 +18,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"urqa" ofType:@"plist"];
+    NSDictionary *dictionary= [[NSDictionary alloc]initWithContentsOfFile:path];
+    
+    [URQAController sharedControllerWithAPIKey:[dictionary valueForKey:@"key"]];
     return YES;
 }
 
