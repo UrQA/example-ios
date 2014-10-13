@@ -15,6 +15,9 @@
 		5E32025419EC136500645D73 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E32025319EC136500645D73 /* Images.xcassets */; };
 		5E32025719EC136500645D73 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E32025519EC136500645D73 /* LaunchScreen.xib */; };
 		5E32026319EC136500645D73 /* sampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E32026219EC136500645D73 /* sampleTests.m */; };
+		5E32026D19EC1B4700645D73 /* UrQA-Client-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E32026C19EC1B4700645D73 /* UrQA-Client-iOS.framework */; };
+		5E32026F19EC1B8E00645D73 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E32026E19EC1B8E00645D73 /* SystemConfiguration.framework */; };
+		5E32027119EC1B9C00645D73 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E32027019EC1B9C00645D73 /* CoreTelephony.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,9 @@
 		5E32025C19EC136500645D73 /* sampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E32026119EC136500645D73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E32026219EC136500645D73 /* sampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sampleTests.m; sourceTree = "<group>"; };
+		5E32026C19EC1B4700645D73 /* UrQA-Client-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "UrQA-Client-iOS.framework"; sourceTree = "<group>"; };
+		5E32026E19EC1B8E00645D73 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		5E32027019EC1B9C00645D73 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +56,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E32027119EC1B9C00645D73 /* CoreTelephony.framework in Frameworks */,
+				5E32026F19EC1B8E00645D73 /* SystemConfiguration.framework in Frameworks */,
+				5E32026D19EC1B4700645D73 /* UrQA-Client-iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +78,7 @@
 				5E32024219EC136500645D73 /* sample */,
 				5E32025F19EC136500645D73 /* sampleTests */,
 				5E32024119EC136500645D73 /* Products */,
+				5E32027319EC1BE600645D73 /* Framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +132,16 @@
 				5E32026119EC136500645D73 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5E32027319EC1BE600645D73 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				5E32027019EC1B9C00645D73 /* CoreTelephony.framework */,
+				5E32026E19EC1B8E00645D73 /* SystemConfiguration.framework */,
+				5E32026C19EC1B4700645D73 /* UrQA-Client-iOS.framework */,
+			);
+			name = Framework;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,6 +371,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = sample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -361,6 +385,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = sample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
