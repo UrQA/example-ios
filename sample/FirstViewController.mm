@@ -9,6 +9,7 @@
 #import "FirstViewController.h"
 #import "NumberExceptionTest.h"
 #import <UrQA-Client-iOS/URQAController.h>
+#import <UrQA-Client-iOS/URDefines.h>
 
 @interface FirstViewController ()
 
@@ -40,13 +41,25 @@
     }
     @catch (NSException *exception) {
         URQABreadcrumb(@"First Error ");
-        URQALog(exception, @"divided Zero");
+        [URQAController logException:exception withTag:@"divided Zero" andErrorRank:URErrorRankMajor];
     }
 }
 
 - (IBAction)callUncatchedErrorReport :(id)sender {
     URQABreadcrumb(@"0x00 Memory Access");
     *((int *)(0x00)) = 0;
+    
+}
+
+- (IBAction)callErrorRankCritical :(id)sender {
+    @try {
+        NSMutableArray *array = (NSMutableArray*) [[NSArray alloc] init];
+        [array addObject:@"Test"];
+    }
+    @catch (NSException *exception) {
+        URQABreadcrumb(@"Critical Error ");
+        [URQAController logException:exception withTag:@"critical Error" andErrorRank:URErrorRankCritical];
+    }
     
 }
 
